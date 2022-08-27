@@ -88,7 +88,9 @@ p{
     text-align: center;
  }
 footer{
+    margin-top: 35px;
     background-color: #04435E;
+    height: 60px;
 }
 #redes i{
     font-size: 18px;
