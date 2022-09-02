@@ -48,6 +48,7 @@ p{
 .flex-wrap{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .flex-center{
     display: flex;
