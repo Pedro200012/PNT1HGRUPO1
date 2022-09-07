@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MENU</title>
+    
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/brands.min.css" rel="stylesheet">
+</head>
+<body id="formulario">
+        <header>
+                <a href="index.html">
+                        <div id="logo">
+                        <img src="images/logo.png">
+                        <p>Rotiseria Pedro y Gino</p>
+                        </div>
+                </a>
+                <nav>
+                    <a href="index.html">
+                        <p>Menu</p>
+                    </a>
+                    <a href="formularioPedidos.html">
+                        <p>Pedir ahora</p>
+                    </a>
+                </nav>
+        
+        </header>
+    <form id="contacto" action="/action_page.php" target="_self" multiple>
+        <h2>Datos del comprador</h2>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="Nombre" name="Nombre" value=""><br>
+        <label for="Apellido">Apellido:</label><br>
+        <input type="text" id="Apellido" name="Apellido" value=""><br>
+        <label for="Direccion">Direccion:</label><br>
+        <input type="text" id="Direccion" name="Direccion" value=""><br><br>
+        <label for="pago">Forma de pago: </label>
+        <select id = "pago" name = "pago">
+            <option value="debito">Tarjeta de debito</option>
+            <option value="credito">Tarjeta de credito</option>
+            <option value="efectivo">Efectivo</option>
+        </select><br><br>
+       
+        <h2><label for="Empanadas">Empanadas</label></h2><br>
+        <input type="checkbox" id="carne" name="sabor" value="Carne" checked>
+        <label for="carne">Carne</label><br>
+        <input type="number" id="cantidad" name="cantidad" value=""><br>
+
+        <input type="checkbox" id="Jamonqueso" name="sabor" value="JYQ" >
+        <label for="Jamonqueso">Jamon y queso</label><br>
+        <input type="number" id="cantidad" name="cantidad" value=""><br>
+
+        <input type="checkbox" id="Verdura" name="sabor" value="verdura" >
+        <label for="verdura">Verdura</label><br>
+        <input type="number" id="cantidad" name="cantidad" value=""><br><br>
+
+        <h2><label for="Pizzas">Pizzas</label></h2><br>
+
+        <input type="checkbox" id="comun" name="comun" value="Comun" >
+        <label for="comun">Comun</label><br>
+
+        <input type="checkbox" id="especial" name="especial" value="Especial" >
+        <label for="especial">Especial</label><br>
+
+        <input type="checkbox" id="Fugazeta" name="Fugazeta" value="Fugazeta" >
+        <label for="Fugazeta">Fugazeta</label><br>
+
+        <input type="checkbox" id="Anchoas" name="Anchoas" value="Anchoas" >
+        <label for="Anchoas">Anchoas</label><br>
+
+        <input type="checkbox" id="Nuestra pizza" name="Nuestra pizza" value="Nuestra pizza" >
+        <label for="Nuestra pizza">Nuestra pizza</label><br>
+
+           
+      </form>
+      <footer>
+        <div id="logo_footer">
+            <img src="images/logo.png">
+            <p>Rotiseria Pedro y Gino</p>
+        </div>
+        <div id="redes">
+            <p>Seguinos en</p>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+    </footer>
+    
+</body>
+</html>
