@@ -20,62 +20,151 @@
                         </div>
                 </a>
                 <nav>
-                    <a href="index.html">
+                    <a class="button" href="index.html">
                         <p>Menu</p>
                     </a>
-                    <a href="formularioPedidos.html">
+                    <a class="button" href="formularioPedidos.html">
                         <p>Pedir ahora</p>
                     </a>
                 </nav>
         
         </header>
-    <form id="contacto" action="/action_page.php" target="_self" multiple>
-        <h2>Datos del comprador</h2>
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="Nombre" name="Nombre" value=""><br>
-        <label for="Apellido">Apellido:</label><br>
-        <input type="text" id="Apellido" name="Apellido" value=""><br>
-        <label for="Direccion">Direccion:</label><br>
-        <input type="text" id="Direccion" name="Direccion" value=""><br><br>
-        <label for="pago">Forma de pago: </label>
-        <select id = "pago" name = "pago">
-            <option value="debito">Tarjeta de debito</option>
-            <option value="credito">Tarjeta de credito</option>
-            <option value="efectivo">Efectivo</option>
-        </select><br><br>
-       
-        <h2><label for="Empanadas">Empanadas</label></h2><br>
-        <input type="checkbox" id="carne" name="sabor" value="Carne" checked>
-        <label for="carne">Carne</label><br>
-        <input type="number" id="cantidad" name="cantidad" value=""><br>
+        <div id="form-contender">
+                <form id="contacto" action="/action_page.php" target="_self" multiple>
+                        <section class="section_form">
+                                <h2>Datos del comprador</h2>
+                                <div class="flex">
+                                        <label for="nombre" >Nombre:</label>
+                                        <input type="text" class="input_select_compra" id="Nombre" name="Nombre" value="">
+                                </div>
+                                <div class="flex">
+                                        <label for="Apellido" >Apellido:</label>
+                                        <input type="text" class="input_select_compra" id="Apellido" name="Apellido" value="">
+                                </div>
+                                <div class="flex">
+                                        <label for="Direccion" >Direccion:</label> 
+                                        <input type="text" class="input_select_compra" id="Direccion" name="Direccion" value="">
+                                </div>
+                                <div class="flex">
+                                        <label for="pago" >Forma de pago: </label>
+                                        <select class="input_select_compra" id = "pago" name = "pago">
+                                                <option value="debito">Tarjeta de debito</option>
+                                                <option value="credito">Tarjeta de credito</option>
+                                                <option value="efectivo">Efectivo</option>
+                                
+                                        </select>
+                                </div>
+                        </section>
+                        <section class="section_form">
+                                <h2>Empanadas</h2>
+                                <div class="flex">
+                                        <input type="checkbox" id="carne" name="sabor" value="Carne" checked>
+                                        <label for="carne">Carne</label>
+                                        <select type="number" id="cantidad" name="cantidad" value="">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                        </select>
+                                </div>
+                                <div class="flex">
+                                        <input type="checkbox" id="Jamonqueso" name="sabor" value="JYQ" >
+                                        <label for="Jamonqueso">Jamon y queso</label>
+                                        <select type="number" id="cantidad" name="cantidad">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                        </select>
+                                </div>
+                                <div class="flex">
+                                        <input type="checkbox" id="Verdura" name="sabor" value="verdura" >
+                                        <label for="verdura">Verdura</label>
+                                        <select type="number" id="cantidad" name="cantidad">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                        </select>
+                                </div>
+                        </section>
+                        <section class="section_form">
+                                <h2>Pizzas</h2>
+                                <div class="flex">
+                                        <input type="checkbox" id="comun" name="comun" value="Comun" >
+                                        <label for="comun">Comun</label>
+                                        <select type="number" id="cantidad" name="cantidad">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                        </select>
+                                </div>
+                                <div class="flex">
+                                        <input type="checkbox" id="especial" name="especial" value="Especial" >
+                                        <label for="especial">Especial</label>
+                                        <select type="number" id="cantidad" name="cantidad">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                        </select>
+                                </div>
+                                <div class="flex">
+                                        <input type="checkbox" id="Fugazeta" name="Fugazeta" value="Fugazeta" >
+                                        <label for="Fugazeta">Fugazeta</label>
+                                        <select type="number" id="cantidad" name="cantidad">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                        </select>
+                                </div>
+                                <div class="flex">
+                                        <input type="checkbox" id="Anchoas" name="Anchoas" value="Anchoas" >
+                                        <label for="Anchoas">Anchoas</label>
+                                        <select type="number" id="cantidad" name="cantidad">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                        </select>
+                                </div>
+                                <div class="flex">
+                                        <input type="checkbox" id="Nuestra pizza" name="Nuestra pizza" value="Nuestra pizza" >
+                                        <label for="Nuestra pizza">Nuestra pizza</label>
+                                        <select type="number" id="cantidad" name="cantidad">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                        </select>
+                                </div>
+                        </section>
+                        <section class="section_form">
+                                <!--<h2>Confirma tu pedido</h2>-->
+                                <input class="button" id="submit_form" type="submit" value="Pedir">
+                        </section>
 
-        <input type="checkbox" id="Jamonqueso" name="sabor" value="JYQ" >
-        <label for="Jamonqueso">Jamon y queso</label><br>
-        <input type="number" id="cantidad" name="cantidad" value=""><br>
-
-        <input type="checkbox" id="Verdura" name="sabor" value="verdura" >
-        <label for="verdura">Verdura</label><br>
-        <input type="number" id="cantidad" name="cantidad" value=""><br><br>
-
-        <h2><label for="Pizzas">Pizzas</label></h2><br>
-
-        <input type="checkbox" id="comun" name="comun" value="Comun" >
-        <label for="comun">Comun</label><br>
-
-        <input type="checkbox" id="especial" name="especial" value="Especial" >
-        <label for="especial">Especial</label><br>
-
-        <input type="checkbox" id="Fugazeta" name="Fugazeta" value="Fugazeta" >
-        <label for="Fugazeta">Fugazeta</label><br>
-
-        <input type="checkbox" id="Anchoas" name="Anchoas" value="Anchoas" >
-        <label for="Anchoas">Anchoas</label><br>
-
-        <input type="checkbox" id="Nuestra pizza" name="Nuestra pizza" value="Nuestra pizza" >
-        <label for="Nuestra pizza">Nuestra pizza</label><br>
-
-           
-      </form>
+                        
+                </form>
+        </div>
       <footer>
         <div id="logo_footer">
             <img src="images/logo.png">

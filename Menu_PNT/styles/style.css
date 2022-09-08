@@ -34,14 +34,17 @@ header{
 nav{
     display: flex ;
 }
-nav a {
+.button {
     font-size: 18px;
     margin: 2px 7px;
     font-weight: bold;
     border: 1px solid aliceblue;
     padding: 7px;
+    color: aliceblue;
+    background-color: rgb(219, 124, 38);
 }
-nav a:hover {
+
+.button:hover {
     background-color: aliceblue;
     color:rgb(219, 124, 38);
     border: 1px solid rgb(219, 124, 38);
@@ -156,15 +159,57 @@ footer{
     margin: 0 auto;
     width: 500px;
     background-color:  rgb(219, 124, 38);
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
+    margin: 70px 70px 35px;
+    
 }
-
-#contacto h2{
+#form-contender{
+    display: flex;
+    align-items: center;
+    min-height: 85vh;
+    justify-content: center;
+}
+#submit_form{
+    margin: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.section_form h2{
     text-align: center;
     background-color: aliceblue;
     color: rgb(219, 124, 38);
     padding: 7px;
+    margin-bottom: 15px;
 }
 footer{
     width: 100vw;
+}
+.section_form{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+.flex{
+    display: flex;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+}
+.flex label {
+    margin: 5px;
+    width: 30%;
+}
+.flex select, .flex input{
+    border: unset;
+    border-radius: 5px;
+    padding: 3px;
+}
+.flex input[type=checkbox]{
+    height: 15px;
+    width: 15px;
+    border: none;
+    border-radius: 10px;
+}
+.input_select_compra{
+    width: 33%;
 }
