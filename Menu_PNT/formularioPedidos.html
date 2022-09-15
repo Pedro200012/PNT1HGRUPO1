@@ -42,8 +42,12 @@
                                         <input type="text" required class="input_select_compra" id="Apellido" name="Apellido" value="">
                                 </div>
                                 <div class="flex">
-                                        <label for="Direccion" >Direccion: *</label> 
+                                        <label for="Dirección" >Dirección: *</label> 
                                         <input type="text" required class="input_select_compra" id="Direccion" name="Direccion" value="">
+                                </div>
+                                <div class="flex">
+                                        <label for="Telefono" >Telefono: *</label> 
+                                        <input type="text" required class="input_select_compra" id="Telefono" name="Telefono" value="">
                                 </div>
                                 <div class="flex">
                                         <label for="pago" required>Forma de pago: *</label>
@@ -57,104 +61,71 @@
                         </section>
                         <section class="section_form">
                                 <h2>Empanadas</h2>
-                                <div class="flex">
-                                        <input type="checkbox" id="carne" name="sabor" value="Carne" checked>
+                                <div class="flex">                              
                                         <label for="carne">Carne</label>
-                                        <select type="number" id="cantidad" name="cantidad" value="">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                        </select>
+                                        <input type="number" id="quantity" name="quantity" value="0" min="0" max="12">
                                 </div>
-                                <div class="flex">
-                                        <input type="checkbox" id="Jamonqueso" name="sabor" value="JYQ" >
+                                <div class="flex">                                        
                                         <label for="Jamonqueso">Jamon y queso</label>
-                                        <select type="number" id="cantidad" name="cantidad">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                        </select>
+                                        <input type="number" id="quantity" name="quantity" value="0" min="0" max="12">
                                 </div>
-                                <div class="flex">
-                                        <input type="checkbox" id="Verdura" name="sabor" value="verdura" >
+                                <div class="flex">                                        
                                         <label for="verdura">Verdura</label>
-                                        <select type="number" id="cantidad" name="cantidad">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                        </select>
+                                        <input type="number" id="quantity" name="quantity" value="0" min="0" max="12">
                                 </div>
                         </section>
                         <section class="section_form">
                                 <h2>Pizzas</h2>
-                                <div class="flex">
-                                        <input type="checkbox" id="comun" name="comun" value="Comun" >
-                                        <label for="comun">Comun</label>
+                                <div class="flex">                                       
+                                        <label for="comun">Común</label>
                                         <select type="number" id="cantidad" name="cantidad">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
+                                                <option value="1">Grande</option>
+                                                <option value="2">Mediana</option>
+                                                <option value="3">Chica</option>
                                         </select>
+                                        <input type="number" id="quantity" name="quantity" value="0" min="0" max="12">
                                 </div>
-                                <div class="flex">
-                                        <input type="checkbox" id="especial" name="especial" value="Especial" >
+                                <div class="flex">                                      
                                         <label for="especial">Especial</label>
                                         <select type="number" id="cantidad" name="cantidad">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
+                                                <option value="1">Grande</option>
+                                                <option value="2">Mediana</option>
+                                                <option value="3">Chica</option>
                                         </select>
+                                        <input type="number" id="quantity" name="quantity" value="0" min="0" max="12">
                                 </div>
-                                <div class="flex">
-                                        <input type="checkbox" id="Fugazeta" name="Fugazeta" value="Fugazeta" >
+                                <div class="flex">                                      
                                         <label for="Fugazeta">Fugazeta</label>
                                         <select type="number" id="cantidad" name="cantidad">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
+                                                <option value="1">Grande</option>
+                                                <option value="2">Mediana</option>
+                                                <option value="3">Chica</option>
                                         </select>
+                                        <input type="number" id="quantity" name="quantity" value="0" min="0" max="12">
                                 </div>
-                                <div class="flex">
-                                        <input type="checkbox" id="Anchoas" name="Anchoas" value="Anchoas" >
+                                <div class="flex">                                      
                                         <label for="Anchoas">Anchoas</label>
                                         <select type="number" id="cantidad" name="cantidad">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
+                                                <option value="1">Grande</option>
+                                                <option value="2">Mediana</option>
+                                                <option value="3">Chica</option>
                                         </select>
+                                        <input type="number" id="quantity" name="quantity" value="0" min="0" max="12">
                                 </div>
                                 <div class="flex">
-                                        <input type="checkbox" id="Nuestra pizza" name="Nuestra pizza" value="Nuestra pizza" >
                                         <label for="Nuestra pizza">Nuestra pizza</label>
                                         <select type="number" id="cantidad" name="cantidad">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                        </select>
+                                                <option value="1">Grande</option>
+                                                <option value="2">Mediana</option>
+                                                <option value="3">Chica</option>
+                                        </select><p></p>
+                                        <input type="number" id="quantity" name="quantity" value="0" min="0" max="12">
+                                </div>
+                        </section>
+                        <section class="section_form">
+                                <h2>Opcional: especificaciones</h2>
+                                <div class="flex">
+                                        <textarea name="message" rows="10" cols="30" placeholder="Dejanos tu comentario (Opcional)"></textarea>
                                 </div>
                         </section>
                         <section class="section_form">
