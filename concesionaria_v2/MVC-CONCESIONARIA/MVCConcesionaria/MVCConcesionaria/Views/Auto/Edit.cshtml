@@ -4,13 +4,13 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Editar</h1>
 
 <h4>Auto</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form method="post" enctype="multipart/form-data" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CantPuertas" class="control-label"></label>
@@ -30,23 +30,40 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="EsUsado" /> @Html.DisplayNameFor(model => model.EsUsado)
+                    <input id="usado" class="form-check-input" asp-for="EsUsado" /> @Html.DisplayNameFor(model => model.EsUsado)
                 </label>
             </div>
-            <div class="form-group">
-                <label asp-for="CantKm" class="control-label"></label>
-                <input asp-for="CantKm" class="form-control" />
-                <span asp-validation-for="CantKm" class="text-danger"></span>
+            @if (Model.EsUsado == true)
+            {
+                <div id="kms" class="form-group">
+                    <label asp-for="CantKm" class="control-label"></label>
+                    <input asp-for="CantKm" class="form-control" />
+                    <span asp-validation-for="CantKm" class="text-danger"></span>
+                </div>
+            }
+            else
+            {
+                <div id="kms" class="none form-group">
+                    <label asp-for="CantKm" class="control-label"></label>
+                    <input asp-for="CantKm" class="form-control" />
+                    <span asp-validation-for="CantKm" class="text-danger"></span>
+                </div>
+            }
+            <div>
+                <input type="hidden" asp-for="ImageMimeType" />
+                <input type="hidden" asp-for="ImageName" />
+                @Html.HiddenFor(c => c.PhotoAvatar)
+                @Html.HiddenFor(c => c.PhotoFile)
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="boton asul"><i class="fas fa-backward"></i></a>
 </div>
 
 @section Scripts {

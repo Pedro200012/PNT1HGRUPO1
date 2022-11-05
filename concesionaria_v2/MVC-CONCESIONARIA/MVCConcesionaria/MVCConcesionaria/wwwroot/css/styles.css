@@ -20,7 +20,7 @@
 .photo-display-img {
     width: 100%;
     margin: 0px;
-    height: auto;
+    height: 200px;
     margin-bottom:5px;
 }
 .photo-display {
@@ -75,4 +75,15 @@ body {
     background-color: #fff;
     color: rgb(156, 1, 1);
     border: 1px solid rgb(156, 1, 1);
+}
+.asul {
+    background-color: rgb(8, 42, 147);
+}
+.asul:hover {
+    background-color: #fff;
+    color: rgb(8, 42, 147);
+    border: 1px solid rgb(8, 42, 147);
+}
+.none{
+    display: none;
 }

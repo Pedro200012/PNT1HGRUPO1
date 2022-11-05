@@ -28,6 +28,7 @@ namespace MVCConcesionaria.Models
         public double CantKm { get; set; }
 
         [NotMapped]
+        [Required(ErrorMessage = "Se debe cargar una imagen")]
         [Display(Name = "Imagen del vehiculo:")]
         public IFormFile PhotoAvatar { get; set; }
 

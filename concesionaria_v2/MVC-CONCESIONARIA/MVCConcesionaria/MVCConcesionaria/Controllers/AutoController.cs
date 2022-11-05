@@ -1,22 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
 using MVCConcesionaria.Context;
 using MVCConcesionaria.Models;
+using System.IO;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace MVCConcesionaria.Controllers
 {
     public class AutoController : Controller
     {
         private readonly ConcesionariaDatabaseContext _context;
+        private IWebHostEnvironment _environment;
 
-        public AutoController(ConcesionariaDatabaseContext context)
+        public AutoController(ConcesionariaDatabaseContext context, IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         // GET: Auto
@@ -54,12 +59,22 @@ namespace MVCConcesionaria.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CantPuertas,ID,Marca,Modelo,EsUsado,CantKm")] Auto auto)
+        public async Task<IActionResult> Create( Auto auto)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(auto);
-                await _context.SaveChangesAsync();
+                if (auto.PhotoAvatar != null && auto.PhotoAvatar.Length > 0)
+                {
+                    auto.ImageMimeType = auto.PhotoAvatar.ContentType;
+                    auto.ImageName = Path.GetFileName(auto.PhotoAvatar.FileName);
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        auto.PhotoAvatar.CopyTo(memoryStream);
+                        auto.PhotoFile = memoryStream.ToArray();
+                    }
+                    _context.Add(auto);
+                    _context.SaveChanges();
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View(auto);
@@ -145,6 +160,41 @@ namespace MVCConcesionaria.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult GetImage(int id)
+        {
+            Auto requestedVehiculo = _context.Autos.SingleOrDefault(a => a.ID == id);
+            if (requestedVehiculo != null)
+            {
+                string webRootpath = _environment.WebRootPath;
+                string folderPath = "\\images\\";
+                string fullPath = webRootpath + folderPath + requestedVehiculo.ImageName;
+                if (System.IO.File.Exists(fullPath))
+                {
+                    FileStream fileOnDisk = new FileStream(fullPath, FileMode.Open);
+                    byte[] fileBytes;
+                    using (BinaryReader br = new BinaryReader(fileOnDisk))
+                    {
+                        fileBytes = br.ReadBytes((int)fileOnDisk.Length);
+                    }
+                    return File(fileBytes, requestedVehiculo.ImageMimeType);
+                }
+                else
+                {
+                    if (requestedVehiculo.PhotoFile.Length > 0)
+                    {
+                        return File(requestedVehiculo.PhotoFile, requestedVehiculo.ImageMimeType);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
         private bool AutoExists(int id)
         {
             return _context.Autos.Any(e => e.ID == id);
