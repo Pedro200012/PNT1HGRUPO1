@@ -98,7 +98,7 @@ namespace MVCConcesionaria.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Tipo,ID,Marca,Modelo,EsUsado,CantKm,ImageMimeType,ImageName,PhotoFile")] Moto moto)
+        public async Task<IActionResult> Edit(int id, [Bind("Tipo,ID,Marca,Modelo,EsUsado,CantKm,ImageMimeType,ImageName,PhotoFile,Anio,Precio")] Moto moto)
         {
             if (id != moto.ID)
             {
