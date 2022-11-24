@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Desktop\\Ort 1 1\\PNT 12\\PNT1HGRUPO1\\concesionaria_v2\\MVC-CONCESIONARIA\\MVCConcesionaria\\MVCConcesionaria\\MVCConcesionaria.csproj": {}
+    "C:\\Users\\PEDRAKO\\Desktop\\ORT\\PNT1HGRUPO1\\concesionaria_v2\\MVC-CONCESIONARIA\\MVCConcesionaria\\MVCConcesionaria\\MVCConcesionaria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Desktop\\Ort 1 1\\PNT 12\\PNT1HGRUPO1\\concesionaria_v2\\MVC-CONCESIONARIA\\MVCConcesionaria\\MVCConcesionaria\\MVCConcesionaria.csproj": {
+    "C:\\Users\\PEDRAKO\\Desktop\\ORT\\PNT1HGRUPO1\\concesionaria_v2\\MVC-CONCESIONARIA\\MVCConcesionaria\\MVCConcesionaria\\MVCConcesionaria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Ort 1 1\\PNT 12\\PNT1HGRUPO1\\concesionaria_v2\\MVC-CONCESIONARIA\\MVCConcesionaria\\MVCConcesionaria\\MVCConcesionaria.csproj",
+        "projectUniqueName": "C:\\Users\\PEDRAKO\\Desktop\\ORT\\PNT1HGRUPO1\\concesionaria_v2\\MVC-CONCESIONARIA\\MVCConcesionaria\\MVCConcesionaria\\MVCConcesionaria.csproj",
         "projectName": "MVCConcesionaria",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\Ort 1 1\\PNT 12\\PNT1HGRUPO1\\concesionaria_v2\\MVC-CONCESIONARIA\\MVCConcesionaria\\MVCConcesionaria\\MVCConcesionaria.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\Ort 1 1\\PNT 12\\PNT1HGRUPO1\\concesionaria_v2\\MVC-CONCESIONARIA\\MVCConcesionaria\\MVCConcesionaria\\obj\\",
+        "projectPath": "C:\\Users\\PEDRAKO\\Desktop\\ORT\\PNT1HGRUPO1\\concesionaria_v2\\MVC-CONCESIONARIA\\MVCConcesionaria\\MVCConcesionaria\\MVCConcesionaria.csproj",
+        "packagesPath": "C:\\Users\\PEDRAKO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PEDRAKO\\Desktop\\ORT\\PNT1HGRUPO1\\concesionaria_v2\\MVC-CONCESIONARIA\\MVCConcesionaria\\MVCConcesionaria\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PEDRAKO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -81,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
         }
       }
     }
