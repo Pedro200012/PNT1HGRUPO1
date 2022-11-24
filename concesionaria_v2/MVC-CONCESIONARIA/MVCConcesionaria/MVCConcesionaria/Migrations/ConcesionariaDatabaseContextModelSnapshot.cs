@@ -26,6 +26,9 @@ namespace MVCConcesionaria.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Anio")
+                        .HasColumnType("int");
+
                     b.Property<double>("CantKm")
                         .HasColumnType("float");
 
@@ -52,6 +55,9 @@ namespace MVCConcesionaria.Migrations
                     b.Property<byte[]>("PhotoFile")
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<int>("Precio")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
                     b.ToTable("Autos");
@@ -63,6 +69,9 @@ namespace MVCConcesionaria.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Anio")
+                        .HasColumnType("int");
 
                     b.Property<double>("CantKm")
                         .HasColumnType("float");
@@ -93,6 +102,9 @@ namespace MVCConcesionaria.Migrations
                     b.Property<byte[]>("PhotoFile")
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<int>("Precio")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
                     b.ToTable("Camionetas");
@@ -104,6 +116,9 @@ namespace MVCConcesionaria.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Anio")
+                        .HasColumnType("int");
 
                     b.Property<double>("CantKm")
                         .HasColumnType("float");
@@ -128,12 +143,155 @@ namespace MVCConcesionaria.Migrations
                     b.Property<byte[]>("PhotoFile")
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<int>("Precio")
+                        .HasColumnType("int");
+
                     b.Property<int>("Tipo")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
                     b.ToTable("Motos");
+                });
+
+            modelBuilder.Entity("MVCConcesionaria.Models.Persona", b =>
+                {
+                    b.Property<int>("PersonaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Apellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PersonaDNI")
+                        .HasColumnType("int");
+
+                    b.HasKey("PersonaId");
+
+                    b.ToTable("Persona");
+                });
+
+            modelBuilder.Entity("MVCConcesionaria.Models.VentaAuto", b =>
+                {
+                    b.Property<int>("IdVentAuto")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("autoID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("clientePersonaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdVentAuto");
+
+                    b.HasIndex("autoID");
+
+                    b.HasIndex("clientePersonaId");
+
+                    b.ToTable("VentaAuto");
+                });
+
+            modelBuilder.Entity("MVCConcesionaria.Models.VentaCamioneta", b =>
+                {
+                    b.Property<int>("IdVentaCamioneta")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("camionetaID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("clientePersonaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdVentaCamioneta");
+
+                    b.HasIndex("camionetaID");
+
+                    b.HasIndex("clientePersonaId");
+
+                    b.ToTable("VentaCamioneta");
+                });
+
+            modelBuilder.Entity("MVCConcesionaria.Models.VentaMoto", b =>
+                {
+                    b.Property<int>("IdVentaMoto")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("clientePersonaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("motoID")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdVentaMoto");
+
+                    b.HasIndex("clientePersonaId");
+
+                    b.HasIndex("motoID");
+
+                    b.ToTable("VentaMoto");
+                });
+
+            modelBuilder.Entity("MVCConcesionaria.Models.VentaAuto", b =>
+                {
+                    b.HasOne("MVCConcesionaria.Models.Auto", "auto")
+                        .WithMany()
+                        .HasForeignKey("autoID");
+
+                    b.HasOne("MVCConcesionaria.Models.Persona", "cliente")
+                        .WithMany()
+                        .HasForeignKey("clientePersonaId");
+                });
+
+            modelBuilder.Entity("MVCConcesionaria.Models.VentaCamioneta", b =>
+                {
+                    b.HasOne("MVCConcesionaria.Models.Camioneta", "camioneta")
+                        .WithMany()
+                        .HasForeignKey("camionetaID");
+
+                    b.HasOne("MVCConcesionaria.Models.Persona", "cliente")
+                        .WithMany()
+                        .HasForeignKey("clientePersonaId");
+                });
+
+            modelBuilder.Entity("MVCConcesionaria.Models.VentaMoto", b =>
+                {
+                    b.HasOne("MVCConcesionaria.Models.Persona", "cliente")
+                        .WithMany()
+                        .HasForeignKey("clientePersonaId");
+
+                    b.HasOne("MVCConcesionaria.Models.Moto", "moto")
+                        .WithMany()
+                        .HasForeignKey("motoID");
                 });
 #pragma warning restore 612, 618
         }

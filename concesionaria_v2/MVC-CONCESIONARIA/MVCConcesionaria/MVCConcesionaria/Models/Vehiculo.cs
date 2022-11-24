@@ -14,7 +14,7 @@ namespace MVCConcesionaria.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
-        [Required(ErrorMessage ="Se debe cargar la marca")]
+        [Required(ErrorMessage = "Se debe cargar la marca")]
         public string Marca { get; set; }
 
 
@@ -37,6 +37,16 @@ namespace MVCConcesionaria.Models
         public byte[] PhotoFile { get; set; }
 
         public string ImageMimeType { get; set; }
+
+        [Range(500000, 20000000000, ErrorMessage = "Se debe cargar un año entre {1} y {2}")]
+        [Required(ErrorMessage = "Se debe cargar su precio")]
+        [Display(Name = "Precio:")]
+        public int Precio { get; set; }
+
+        [Range(2010, 2022,ErrorMessage ="Se debe cargar un año entre {1} y {2}")]
+        [Required(ErrorMessage = "Se debe cargar el año")]
+        [Display(Name = "Año:")]
+        public int Anio {get;set; }
 
         public Vehiculo()
         {

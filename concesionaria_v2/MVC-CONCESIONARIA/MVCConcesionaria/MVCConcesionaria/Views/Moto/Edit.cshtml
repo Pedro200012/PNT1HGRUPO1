@@ -12,15 +12,14 @@
     <div class="col-md-4">
         <form method="post" enctype="multipart/form-data" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
             <div class="form-group">
                 <label asp-for="Tipo" class="control-label"></label>
                 <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<TipoMoto>()">
-
                     <option selected="selected" value="">Seleccione un tipo de moto</option>
                 </select>
                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="ID" />
             <div class="form-group">
                 <label asp-for="Marca" class="control-label"></label>
                 <input asp-for="Marca" class="form-control" />
@@ -43,8 +42,7 @@
                     <label asp-for="CantKm" class="control-label"></label>
                     <input asp-for="CantKm" class="form-control" />
                     <span asp-validation-for="CantKm" class="text-danger"></span>
-                </div>
-            }
+                </div> }
             else
             {
                 <div id="kms" class="none form-group">
@@ -53,11 +51,22 @@
                     <span asp-validation-for="CantKm" class="text-danger"></span>
                 </div>
             }
+            <div class="form-group">
+                <label asp-for="Precio" class="control-label"></label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Anio" class="control-label"></label>
+                <input asp-for="Anio" class="form-control" />
+                <span asp-validation-for="Anio" class="text-danger"></span>
+            </div>
             <div>
                 <input type="hidden" asp-for="ImageMimeType" />
                 <input type="hidden" asp-for="ImageName" />
-                @Html.HiddenFor(c => c.PhotoAvatar)
-                @Html.HiddenFor(c => c.PhotoFile)
+                <input type="hidden" asp-for="PhotoFile" />
+                @Html.HiddenFor(m => m.PhotoAvatar)
+                @Html.HiddenFor(m => m.PhotoFile)
             </div>
             <div class="form-group">
                 <input type="submit" value="Guardar" class="btn btn-primary" />

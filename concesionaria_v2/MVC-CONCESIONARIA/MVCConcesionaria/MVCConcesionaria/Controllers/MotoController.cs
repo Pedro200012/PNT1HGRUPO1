@@ -15,7 +15,7 @@ namespace MVCConcesionaria.Controllers
 {
     public class MotoController : Controller
     {
-        private ConcesionariaDatabaseContext _context;
+        private readonly ConcesionariaDatabaseContext _context;
         private IWebHostEnvironment _environment;
 
         public MotoController(ConcesionariaDatabaseContext context, IWebHostEnvironment environment)
@@ -61,23 +61,20 @@ namespace MVCConcesionaria.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Moto moto)
         {
-            if (ModelState.IsValid)
+           
+            if (moto.PhotoAvatar != null && moto.PhotoAvatar.Length > 0)
             {
-                if (moto.PhotoAvatar != null && moto.PhotoAvatar.Length > 0)
+                moto.ImageMimeType = moto.PhotoAvatar.ContentType;
+                moto.ImageName = Path.GetFileName(moto.PhotoAvatar.FileName);
+                using (var memoryStream = new MemoryStream())
                 {
-                    moto.ImageMimeType = moto.PhotoAvatar.ContentType;
-                    moto.ImageName = Path.GetFileName(moto.PhotoAvatar.FileName);
-                    using (var memoryStream = new MemoryStream())
-                    {
-                        moto.PhotoAvatar.CopyTo(memoryStream);
-                        moto.PhotoFile = memoryStream.ToArray();
-                    }
-                    _context.Add(moto);
-                    _context.SaveChanges();
+                    moto.PhotoAvatar.CopyTo(memoryStream);
+                    moto.PhotoFile = memoryStream.ToArray();
                 }
-                return RedirectToAction(nameof(Index));
+                _context.Add(moto);
+                _context.SaveChanges();
             }
-            return View(moto);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Moto/Edit/5
@@ -101,34 +98,29 @@ namespace MVCConcesionaria.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Tipo,ID,Marca,Modelo,EsUsado,CantKm")] Moto moto)
+        public async Task<IActionResult> Edit(int id, [Bind("Tipo,ID,Marca,Modelo,EsUsado,CantKm,ImageMimeType,ImageName,PhotoFile,Anio,Precio")] Moto moto)
         {
             if (id != moto.ID)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    _context.Update(moto);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MotoExists(moto.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(moto);
+                _context.SaveChanges();
             }
-            return View(moto);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!MotoExists(moto.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Moto/Delete/5

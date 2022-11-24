@@ -61,23 +61,19 @@ namespace MVCConcesionaria.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create( Auto auto)
         {
-            if (ModelState.IsValid)
+            if (auto.PhotoAvatar != null && auto.PhotoAvatar.Length > 0)
             {
-                if (auto.PhotoAvatar != null && auto.PhotoAvatar.Length > 0)
+                auto.ImageMimeType = auto.PhotoAvatar.ContentType;
+                auto.ImageName = Path.GetFileName(auto.PhotoAvatar.FileName);
+                using (var memoryStream = new MemoryStream())
                 {
-                    auto.ImageMimeType = auto.PhotoAvatar.ContentType;
-                    auto.ImageName = Path.GetFileName(auto.PhotoAvatar.FileName);
-                    using (var memoryStream = new MemoryStream())
-                    {
-                        auto.PhotoAvatar.CopyTo(memoryStream);
-                        auto.PhotoFile = memoryStream.ToArray();
-                    }
-                    _context.Add(auto);
-                    _context.SaveChanges();
+                auto.PhotoAvatar.CopyTo(memoryStream);
+                auto.PhotoFile = memoryStream.ToArray();
                 }
-                return RedirectToAction(nameof(Index));
+                _context.Add(auto);
+                _context.SaveChanges();
             }
-            return View(auto);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Auto/Edit/5
@@ -101,19 +97,16 @@ namespace MVCConcesionaria.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CantPuertas,ID,Marca,Modelo,EsUsado,CantKm")] Auto auto)
+        public async Task<IActionResult> Edit(int id, [Bind("CantPuertas,ID,Marca,Modelo,EsUsado,CantKm,ImageMimeType,ImageName,PhotoFile,Anio,Precio")] Auto auto)
         {
             if (id != auto.ID)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
-            {
                 try
                 {
                     _context.Update(auto);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -126,10 +119,10 @@ namespace MVCConcesionaria.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(auto);
+            return RedirectToAction(nameof(Index));
+           
         }
+
 
         // GET: Auto/Delete/5
         public async Task<IActionResult> Delete(int? id)

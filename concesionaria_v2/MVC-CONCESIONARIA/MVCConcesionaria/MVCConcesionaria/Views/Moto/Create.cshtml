@@ -30,7 +30,7 @@
                 <input asp-for="Modelo" class="form-control" />
                 <span asp-validation-for="Modelo" class="text-danger"></span>
             </div>
-            <div  class="form-group form-check">
+            <div class="form-group form-check">
                 <label class="form-check-label">
                     <input id="usado" class="form-check-input" asp-for="EsUsado" /> @Html.DisplayNameFor(model => model.EsUsado)
                 </label>
@@ -39,6 +39,16 @@
                 <label asp-for="CantKm" class="control-label"></label>
                 <input asp-for="CantKm" class="form-control" />
                 <span asp-validation-for="CantKm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Precio" class="control-label"></label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Anio" class="control-label"></label>
+                <input asp-for="Anio" class="form-control" />
+                <span asp-validation-for="Anio" class="text-danger"></span>
             </div>
             <div class="form-field">
                 <label asp-for="PhotoAvatar"></label>

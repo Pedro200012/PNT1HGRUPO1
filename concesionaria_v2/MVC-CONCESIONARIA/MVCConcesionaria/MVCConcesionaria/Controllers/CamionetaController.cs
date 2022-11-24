@@ -61,23 +61,19 @@ namespace MVCConcesionaria.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Camioneta camioneta)
         {
-            if (ModelState.IsValid)
+            if (camioneta.PhotoAvatar != null && camioneta.PhotoAvatar.Length > 0)
             {
-                if (camioneta.PhotoAvatar != null && camioneta.PhotoAvatar.Length > 0)
+                camioneta.ImageMimeType = camioneta.PhotoAvatar.ContentType;
+                camioneta.ImageName = Path.GetFileName(camioneta.PhotoAvatar.FileName);
+                using (var memoryStream = new MemoryStream())
                 {
-                    camioneta.ImageMimeType = camioneta.PhotoAvatar.ContentType;
-                    camioneta.ImageName = Path.GetFileName(camioneta.PhotoAvatar.FileName);
-                    using (var memoryStream = new MemoryStream())
-                    {
-                        camioneta.PhotoAvatar.CopyTo(memoryStream);
-                        camioneta.PhotoFile = memoryStream.ToArray();
-                    }
-                    _context.Add(camioneta);
-                    _context.SaveChanges();
+                    camioneta.PhotoAvatar.CopyTo(memoryStream);
+                    camioneta.PhotoFile = memoryStream.ToArray();
                 }
-                return RedirectToAction(nameof(Index));
+                _context.Add(camioneta);
+                _context.SaveChanges();
             }
-            return View(camioneta);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Camioneta/Edit/5
@@ -101,34 +97,30 @@ namespace MVCConcesionaria.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Es4x4,EsDobleCabina,ID,Marca,Modelo,EsUsado,CantKm")] Camioneta camioneta)
+        public async Task<IActionResult> Edit(int id, [Bind("Es4x4,EsDobleCabina,ID,Marca,Modelo,EsUsado,CantKm,ImageMimeType,ImageName,PhotoFile,Anio,Precio")] Camioneta camioneta)
         {
             if (id != camioneta.ID)
             {
                 return NotFound();
-            }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(camioneta);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CamionetaExists(camioneta.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
             }
-            return View(camioneta);
+            try
+            {
+                _context.Update(camioneta);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CamionetaExists(camioneta.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Camioneta/Delete/5

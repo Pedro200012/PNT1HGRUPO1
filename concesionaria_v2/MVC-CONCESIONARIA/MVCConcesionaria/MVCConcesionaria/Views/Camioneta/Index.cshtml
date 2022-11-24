@@ -25,22 +25,24 @@
             <p class="display-label">
                 Modelo: @Html.DisplayFor(model => item.Modelo)
             </p>
+            <p class="display-label">
+                Anio: @Html.DisplayFor(model => item.Anio)
+            </p>
+            <p class="display-label">
+                Precio: @Html.DisplayFor(model => item.Precio)
+            </p>
             @if (item.EsUsado)
             {
-                <p class="display-label">Usado: @Html.DisplayFor(model => item.CantKm)km</p>
-            }
-            else
-            {
-                <p class="display-label">Nuevo</p>
-            }
+        <p class="display-label">Usado: @Html.DisplayFor(model => item.CantKm)km</p> }
+                        else
+                        {
+        <p class="display-label">Nuevo</p>}
             @if (item.Es4x4)
             {
-                <p class="display-label">4X4</p>
-            }
+        <p class="display-label">4X4</p>}
             @if (item.EsDobleCabina)
             {
-                <p class="display-label">Doble cabina</p>
-            }
+        <p class="display-label">Doble cabina</p>}
 
         </div>
             <div class="contender">
