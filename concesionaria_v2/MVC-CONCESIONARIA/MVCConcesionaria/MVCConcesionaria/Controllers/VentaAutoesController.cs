@@ -68,7 +68,7 @@ namespace MVCConcesionaria.Controllers
             {
             return new SelectListItem()
             {
-                    Text = "marca: " + d.Marca.ToString() + " - Modelo: " + d.Modelo.ToString() + " - Precio: $" + d.Precio.ToString() + " - Año: " + d.Anio.ToString(),
+                    Text = d.datosVehiculo,
                     Value = d.ID.ToString(),
                     Selected = false
                 };
@@ -77,7 +77,7 @@ namespace MVCConcesionaria.Controllers
             {
                 return new SelectListItem()
                 {
-                    Text = "nombre: " + d.Nombre.ToString() + " - Apellido: " + d.Apellido.ToString() + " - DNI: " + d.PersonaDNI.ToString(),
+                    Text = d.datosPersona,
                     Value = d.PersonaId.ToString(),
                     Selected = false
                 };

@@ -28,6 +28,12 @@ namespace MVCConcesionaria.Models
         [DisplayName("Apellido")]
         public string Apellido { get; set; }
 
+        [NotMapped]
+        public String datosPersona {
+            get {
+                return Nombre + " - " + Apellido + " - " + PersonaDNI;
+                } 
+        }
         public Persona()
         {
 

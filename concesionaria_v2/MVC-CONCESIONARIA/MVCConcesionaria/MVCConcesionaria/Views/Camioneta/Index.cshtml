@@ -9,6 +9,15 @@
 <p>
     <a asp-action="Create">Agregar una camioneta</a>
 </p>
+<p>
+    <a asp-controller="VentaCamionetas" asp-action="Index">Lista de camionetas vendidas</a>
+</p>
+<p>
+    <a asp-controller="VentaCamionetas" asp-action="Create">Vender camioneta</a>
+</p>
+
+   
+
 <div class="img-container" img-container">
     @foreach (var item in Model)
     {

@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MVCConcesionaria</title>
+    <link type="text/css" rel="stylesheet" href="~/css/styles.css?v=3.4.1" />
+    <link rel="stylesheet" href="~/css/site.css?v=3.4.1" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css ">
-    <link type="text/css" rel="stylesheet" href="~/css/styles.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 <body>
     <header>
@@ -37,15 +38,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Personas" asp-action="Index">Clientes</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="VentaMotoes" asp-action="Index">Motos vendidas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="VentaAutoes" asp-action="Index">Autos vendidos</a>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="VentaCamionetas" asp-action="Index">Camionetas vendidas</a>
-                        </li>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -57,11 +50,6 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - MVCConcesionaria - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

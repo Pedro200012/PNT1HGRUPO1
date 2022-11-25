@@ -87,6 +87,6 @@ body {
 .none{
     display: none;
 }
-.form-control{
-    margin:5px;
+.form-control, .form-field {
+    margin: 15px 0px;
 }

@@ -48,6 +48,14 @@ namespace MVCConcesionaria.Models
         [Display(Name = "Año:")]
         public int Anio {get;set; }
 
+        [NotMapped]
+        public String datosVehiculo
+        {
+            get
+            {
+                return "Marca: " + Marca + " - modelo: " + Modelo + " - Precio: $" + Precio + " - Año: " + Anio;
+            }
+        }
         public Vehiculo()
         {
 
