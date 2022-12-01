@@ -25,7 +25,7 @@ namespace MVCConcesionaria.Controllers
             List<VentaMoto> lst = new List<VentaMoto>();
             using (_context)
             {
-                lst = (from d in _context.VentaAuto
+                lst = (from d in _context.VentaMoto
                        select new VentaMoto
                        {
                            Id = d.Id,

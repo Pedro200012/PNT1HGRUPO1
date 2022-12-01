@@ -190,17 +190,7 @@ namespace MVCConcesionaria.Migrations
                     b.Property<int?>("IdCliente")
                         .HasColumnType("int");
 
-                    b.Property<int?>("autoID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("clientePersonaId")
-                        .HasColumnType("int");
-
                     b.HasKey("IdVentAuto");
-
-                    b.HasIndex("autoID");
-
-                    b.HasIndex("clientePersonaId");
 
                     b.ToTable("VentaAuto");
                 });
@@ -218,17 +208,7 @@ namespace MVCConcesionaria.Migrations
                     b.Property<int?>("IdCliente")
                         .HasColumnType("int");
 
-                    b.Property<int?>("camionetaID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("clientePersonaId")
-                        .HasColumnType("int");
-
                     b.HasKey("IdVentaCamioneta");
-
-                    b.HasIndex("camionetaID");
-
-                    b.HasIndex("clientePersonaId");
 
                     b.ToTable("VentaCamioneta");
                 });
@@ -246,52 +226,9 @@ namespace MVCConcesionaria.Migrations
                     b.Property<int?>("IdCliente")
                         .HasColumnType("int");
 
-                    b.Property<int?>("clientePersonaId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("motoID")
-                        .HasColumnType("int");
-
                     b.HasKey("IdVentaMoto");
 
-                    b.HasIndex("clientePersonaId");
-
-                    b.HasIndex("motoID");
-
                     b.ToTable("VentaMoto");
-                });
-
-            modelBuilder.Entity("MVCConcesionaria.Models.VentaAuto", b =>
-                {
-                    b.HasOne("MVCConcesionaria.Models.Auto", "auto")
-                        .WithMany()
-                        .HasForeignKey("autoID");
-
-                    b.HasOne("MVCConcesionaria.Models.Persona", "cliente")
-                        .WithMany()
-                        .HasForeignKey("clientePersonaId");
-                });
-
-            modelBuilder.Entity("MVCConcesionaria.Models.VentaCamioneta", b =>
-                {
-                    b.HasOne("MVCConcesionaria.Models.Camioneta", "camioneta")
-                        .WithMany()
-                        .HasForeignKey("camionetaID");
-
-                    b.HasOne("MVCConcesionaria.Models.Persona", "cliente")
-                        .WithMany()
-                        .HasForeignKey("clientePersonaId");
-                });
-
-            modelBuilder.Entity("MVCConcesionaria.Models.VentaMoto", b =>
-                {
-                    b.HasOne("MVCConcesionaria.Models.Persona", "cliente")
-                        .WithMany()
-                        .HasForeignKey("clientePersonaId");
-
-                    b.HasOne("MVCConcesionaria.Models.Moto", "moto")
-                        .WithMany()
-                        .HasForeignKey("motoID");
                 });
 #pragma warning restore 612, 618
         }

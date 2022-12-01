@@ -32,7 +32,7 @@
     margin: 20px 50px;
 }
 body {
-    background-color :#e7e7e7;
+    background-color :#e7e7e7 !important;
 }
 .display-label{
     font-weight:bold;
@@ -89,4 +89,18 @@ body {
 }
 .form-control, .form-field {
     margin: 15px 0px;
+}
+.background {
+    background-image: url("https://img.freepik.com/fotos-premium/concesionario-automoviles-fondo-borroso-aplicacion-fondo_88135-32531.jpg?w=2000");
+    height:700px;
+    width:100%;
+}
+.background h1 {
+    margin:15px;
+    font-weight:bold;
+    text-align:center;
+    font-size:48px;
+}
+.container{
+    margin:0px;
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCConcesionaria.Migrations
 {
     [DbContext(typeof(ConcesionariaDatabaseContext))]
-    [Migration("20221122200357_migracion3")]
-    partial class migracion3
+    [Migration("20221201212325_Crear-base")]
+    partial class Crearbase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -179,6 +179,42 @@ namespace MVCConcesionaria.Migrations
                     b.ToTable("Persona");
                 });
 
+            modelBuilder.Entity("MVCConcesionaria.Models.VentaAuto", b =>
+                {
+                    b.Property<int>("IdVentAuto")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdVentAuto");
+
+                    b.ToTable("VentaAuto");
+                });
+
+            modelBuilder.Entity("MVCConcesionaria.Models.VentaCamioneta", b =>
+                {
+                    b.Property<int>("IdVentaCamioneta")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdVentaCamioneta");
+
+                    b.ToTable("VentaCamioneta");
+                });
+
             modelBuilder.Entity("MVCConcesionaria.Models.VentaMoto", b =>
                 {
                     b.Property<int>("IdVentaMoto")
@@ -192,30 +228,9 @@ namespace MVCConcesionaria.Migrations
                     b.Property<int?>("IdCliente")
                         .HasColumnType("int");
 
-                    b.Property<int?>("clientePersonaId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("motoID")
-                        .HasColumnType("int");
-
                     b.HasKey("IdVentaMoto");
 
-                    b.HasIndex("clientePersonaId");
-
-                    b.HasIndex("motoID");
-
                     b.ToTable("VentaMoto");
-                });
-
-            modelBuilder.Entity("MVCConcesionaria.Models.VentaMoto", b =>
-                {
-                    b.HasOne("MVCConcesionaria.Models.Persona", "cliente")
-                        .WithMany()
-                        .HasForeignKey("clientePersonaId");
-
-                    b.HasOne("MVCConcesionaria.Models.Moto", "moto")
-                        .WithMany()
-                        .HasForeignKey("motoID");
                 });
 #pragma warning restore 612, 618
         }

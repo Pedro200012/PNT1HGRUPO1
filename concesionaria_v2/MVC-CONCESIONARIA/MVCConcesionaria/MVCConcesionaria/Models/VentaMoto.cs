@@ -15,9 +15,13 @@ namespace MVCConcesionaria.Models
 		public int IdVentaMoto { get; set; }
 
 		public int? IdCliente { get; set; }
+
+		[NotMapped]
 		public Persona cliente{ get; set; }
 
 		public int? Id { get; set; }    // ? puede ser nullable
+
+		[NotMapped]
 		public Moto moto { get; set; }
 
 	}

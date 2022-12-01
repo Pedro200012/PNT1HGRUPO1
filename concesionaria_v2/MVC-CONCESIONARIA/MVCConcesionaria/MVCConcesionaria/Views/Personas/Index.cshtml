@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.Apellido)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PersonaId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.PersonaId">Detalle</a> |
-                <a asp-action="Delete" asp-route-id="@item.PersonaId">Eliminar</a>
+                <a asp-action="Edit" asp-route-id="@item.PersonaId" class="boton amarillo"><i class="fas fa-pencil-alt"></i></a>
+                <a asp-action="Details" asp-route-id="@item.PersonaId" class="boton verde "><i class="fas fa-info-circle"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.PersonaId" class="boton rojo"><i class="fas fa-trash-alt"></i></a>
             </td>
         </tr>
 }
